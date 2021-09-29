@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LoanSharkMVC.Helpers;
 
 namespace LoanSharkMVC.Controllers
 {
@@ -35,6 +36,17 @@ namespace LoanSharkMVC.Controllers
             loan.TotalInterest = 0.0m;
 
             return View(loan); //The default values will be displayed to the user
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult App(Loan loan)
+        {
+            //Calculate the loan and get the payments
+            var loanHelper = new LoanHelper();
+            var newLoan = loanHelper.GetPayments(loan);
+
+            return View(newLoan);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
