@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Comprehension-SemiBold
+font link: https://hanken.co/product/comprehension/
+font author: Hanken Design Co.
+font author site: https://hanken.co/
+
+
+icon designer: Ealancheliyan s
+icon designer link: /Ealancheliyan
+        
+{"bg":"#F1EFEF","icon-gradient-0":"#563F33","icon-gradient-1":"#A3A1A1","font":"#292523","slogan":"#3d3937"}
+      

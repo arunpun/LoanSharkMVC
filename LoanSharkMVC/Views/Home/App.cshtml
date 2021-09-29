@@ -1,0 +1,91 @@
+﻿@model LoanSharkMVC.Models.Loan
+
+@{
+    ViewData["Title"] = "The App - ";
+}
+
+<div class="container">
+    <h1 class="mb-4">Loan Shark</h1>
+    <div class="row">
+        <div class="col">
+            <form asp-controller="Home" asp-action="App" method="post">
+                <div class="form-row">
+                    <div class="col-12 form-group">
+                        <label asp-for="Amount">Loan Amount:</label>
+                        <input type="number" class="form-control" id="lAmount" min="1000" step="500" value=@Model.Amount asp-for="Amount" />
+                    </div>
+                    <div class="col-12 form-group">
+                        <label asp-for="Rate">Rate:</label>
+                        <input type="number" class="form-control" id="lRate" min="1" step="0.1" value=@Model.Rate asp-for="Rate" />
+                    </div>
+                    <div class="col-12 form-group">
+                        <label asp-for="Term">Term (In months):</label>
+                        <input type="number" class="form-control" id="lTerm" min="1" value=@Model.Term asp-for="Term" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2" id="calculateLoan">Calculate</button>
+            </form>
+        </div>
+        <div class="col">
+            <div id="paymentTitle">
+                <p>Your monthly payment</p>
+            </div>
+            <p id="payment">
+                @Model.Payment.ToString("C")
+            </p>
+            <div class="row">
+                <div class="col-6">
+                    <label class="text-left">Total Principal</label>
+                </div>
+                <div class="col-6 text-right" id="totalPrincipal">
+                    @Model.Amount.ToString("C")
+                </div>
+                <div class="col-6">
+                    <label class="text-left">Total Interest</label>
+                </div>
+                <div class="col-6 text-right" id="totalInterest">
+                    @Model.TotalInterest.ToString("C")
+                </div>
+                <div class="col-6">
+                    <label class="text-left">Total Cost</label>
+                </div>
+                <div class="col-6 text-right" id="totalCost">
+                    @Model.TotalCost.ToString("C")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Payments.Count > 0)
+    {
+        <div class="row">
+            <div class="col">
+                <table id="scheduleTable" class="">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Payment</th>
+                            <th>Monthly Principal</th>
+                            <th>Monthly Interest</th>
+                            <th>Total Interest</th> <!--Total interest on the loan upto the point of the payment-->
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Payments)
+                        {
+                            <tr>
+                                <td>@item.Month</td>
+                                <td>@item.Payment</td>
+                                <td>@item.MonthlyPrincipal</td>
+                                <td>@item.MonthlyInterest</td>
+                                <td>@item.TotalInterest</td>
+                                <td>@item.Balance</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
