@@ -31,26 +31,26 @@
                 <p>Your monthly payment</p>
             </div>
             <p id="payment">
-                @Model.Payment.ToString("C")
+                £@Model.Payment.ToString("0.00")
             </p>
             <div class="row">
                 <div class="col-6">
                     <label class="text-left">Total Principal</label>
                 </div>
                 <div class="col-6 text-right" id="totalPrincipal">
-                    @Model.Amount.ToString("C")
+                    £@Model.Amount.ToString("0.00")
                 </div>
                 <div class="col-6">
                     <label class="text-left">Total Interest</label>
                 </div>
                 <div class="col-6 text-right" id="totalInterest">
-                    @Model.TotalInterest.ToString("C")
+                    £@Model.TotalInterest.ToString("0.00")
                 </div>
                 <div class="col-6">
                     <label class="text-left">Total Cost</label>
                 </div>
                 <div class="col-6 text-right" id="totalCost">
-                    @Model.TotalCost.ToString("C")
+                    £@Model.TotalCost.ToString("0.00")
                 </div>
             </div>
         </div>
@@ -76,11 +76,11 @@
                         {
                             <tr>
                                 <td>@item.Month</td>
-                                <td>@item.Payment.ToString("C")</td>
-                                <td>@item.MonthlyPrincipal.ToString("C")</td>
-                                <td>@item.MonthlyInterest.ToString("C")</td>
-                                <td>@item.TotalInterest.ToString("C")</td>
-                                <td>@item.Balance.ToString("C")</td>
+                                <td>£@item.Payment.ToString("0.00")</td>
+                                <td>£@item.MonthlyPrincipal.ToString("0.00")</td>
+                                <td>£@item.MonthlyInterest.ToString("0.00")</td>
+                                <td>£@item.TotalInterest.ToString("0.00")</td>
+                                <td>£@item.Balance.ToString("0.00")</td>
                             </tr>
                         }
                     </tbody>
