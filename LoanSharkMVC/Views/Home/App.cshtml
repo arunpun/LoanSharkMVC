@@ -23,7 +23,7 @@
                         <input type="number" class="form-control" id="lTerm" min="1" value=@Model.Term asp-for="Term" />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-2" id="calculateLoan">Calculate</button>
+                <button type="submit" class="btn btn-primary mt-4" id="calculateLoan">Calculate</button>
             </form>
         </div>
         <div class="col">
@@ -37,19 +37,19 @@
                 <div class="col-6">
                     <label class="text-left">Total Principal</label>
                 </div>
-                <div class="col-6 text-right" id="totalPrincipal">
+                <div class="col-6 text-center" id="totalPrincipal">
                     £@Model.Amount.ToString("0.00")
                 </div>
                 <div class="col-6">
                     <label class="text-left">Total Interest</label>
                 </div>
-                <div class="col-6 text-right" id="totalInterest">
+                <div class="col-6 text-center" id="totalInterest">
                     £@Model.TotalInterest.ToString("0.00")
                 </div>
                 <div class="col-6">
                     <label class="text-left">Total Cost</label>
                 </div>
-                <div class="col-6 text-right" id="totalCost">
+                <div class="col-6 text-center" id="totalCost">
                     £@Model.TotalCost.ToString("0.00")
                 </div>
             </div>
